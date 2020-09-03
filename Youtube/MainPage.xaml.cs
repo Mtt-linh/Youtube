@@ -31,8 +31,17 @@ namespace Youtube
         public MainPage()
         {
             this.InitializeComponent();
+           
+
+        }
+       
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        }
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
             
-          
         }
         public async void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -51,7 +60,7 @@ namespace Youtube
             }
             catch (Exception ex)
             {
-              
+
 
             }
         }

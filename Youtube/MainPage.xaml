@@ -6,18 +6,89 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Width="480"
+    Height="650"
     Loaded="Page_Loaded">
-    
- <StackPanel>
-       
-        <StackPanel VerticalAlignment="Center">
-            <TextBlock x:Name="DateResult" FontSize="10" Foreground="Black" HorizontalAlignment="Center" Padding="0" Margin="0,160,220,20"/>
-            <TextBlock x:Name="TitleResult" FontSize="11" Foreground="Black" HorizontalAlignment="Center" Padding="0" Margin="50,0,0,10" Width="400" TextWrapping="Wrap"/>
-            <Image x:Name="ImageResult" Width="370" Height="400" HorizontalAlignment="Center" Margin="20,-90,-0,-90"/>
-            <TextBlock Name="ContentResult1" FontSize="11" Foreground="Black" HorizontalAlignment="Center" Padding="0" Margin="30,10,0,0" Width="380" TextWrapping="Wrap"/>
-        </StackPanel>
-    </StackPanel>
+
+    <Grid  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <RelativePanel Background="Aqua">
+            <Button Name="HamburgerButton"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    FontFamily="Segoe MDL2 Assets"
+                    Content="&#xE700;"
+                    FontSize="20"
+                    Width="45"
+                    Height="45"
+                    HorizontalAlignment="Center"
+                    Click="HamburgerButton_Click"
+                    />
+            <TextBlock Text="NetWork"
+                       RelativePanel.RightOf="HamburgerButton"
+                       FontSize="23"
+                       FontWeight="Bold"
+                       Margin="20,10,0,0"/>
+            <AutoSuggestBox Name="MyAutoSuggestBox"
+                            QueryIcon="Find"
+                            PlaceholderText="Search"
+                            RelativePanel.AlignRightWithPanel="True"
+                            Width="200" Height="27"
+                            Margin="0,9,40,0"/>
+        </RelativePanel>
+        <SplitView Name="MySplitView"
+                   DisplayMode="CompactOverlay"
+                   OpenPaneLength="150"
+                   CompactPaneLength="45" Margin="0,45,10,0" Grid.RowSpan="2">
+            <SplitView.Pane>
+                <ListBox SelectionMode="Single"
+                         SelectionChanged="ListBox_SelectionChanged" Margin="0,0,11,0">
+                    <ListBoxItem Name="Financial">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xE80F;"
+                                       FontSize="20"
+                                       FontFamily="Segoe MDL2 Assets"/>
+                            <TextBlock Text="Financial"
+                                       FontSize="18"
+                                       Margin="20,0,0,0"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="Food">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xE1CE;"
+                                       FontSize="20"
+                                       FontFamily="Segoe MDL2 Assets"/>
+                            <TextBlock Text="Food"
+                                       FontSize="18"
+                                       Margin="20,0,0,0"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid Margin="0,0,0,0">
+                    <RelativePanel Background="Ivory"  >
+                                    <StackPanel>
+
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock x:Name="DateResult" FontSize="10" Foreground="Black" HorizontalAlignment="Center" Padding="0" />
+                                            <TextBlock x:Name="TitleResult" FontSize="11" Foreground="Black" HorizontalAlignment="Center" Padding="0" TextWrapping="Wrap"/>
+                                            <Image x:Name="ImageResult" Width="370" Height="400" HorizontalAlignment="Center" />
+                                            <TextBlock Name="ContentResult1" FontSize="11" Foreground="Black" HorizontalAlignment="Center" Padding="0" TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </RelativePanel>
+
+                            </Grid>
+                       
+            </SplitView.Content>
+        </SplitView>
+
+    </Grid>
+
 
 
 </Page>
